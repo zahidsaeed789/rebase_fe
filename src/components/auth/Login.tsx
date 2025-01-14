@@ -6,6 +6,8 @@ interface LoginFormData {
   password: string;
 }
 
+console.log(import.meta.env.VITE_API_URL);
+
 const Login: React.FC = () => {
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
@@ -24,7 +26,6 @@ const Login: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    // alert(import.meta.env.API_BASE_URL);
     try {
       const response = await fetch("http://localhost:8002/api/login", {
         method: "POST",
